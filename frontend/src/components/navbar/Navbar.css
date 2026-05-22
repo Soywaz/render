@@ -1,0 +1,119 @@
+/* Navbar.css - Estilos Premium para la Barra de Navegación */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  height: 80px;
+  background: rgba(10, 14, 26, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: var(--transition);
+}
+
+/* Logo */
+.navbar-logo a {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.logo-text {
+  background: linear-gradient(135deg, #ffffff 40%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-dot {
+  color: var(--secondary);
+  text-shadow: 0 0 10px var(--secondary-glow);
+}
+
+/* Enlaces */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navbar-links li a {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: var(--transition);
+}
+
+.navbar-links li a:hover {
+  color: var(--text-primary);
+}
+
+/* Indicador de página activa */
+.navbar-links li a:not(.register-btn)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: var(--transition);
+  border-radius: 2px;
+}
+
+.navbar-links li a.active:not(.register-btn) {
+  color: var(--text-primary);
+}
+
+.navbar-links li a.active:not(.register-btn)::after {
+  width: 100%;
+}
+
+.navbar-links li a:hover:not(.register-btn)::after {
+  width: 100%;
+}
+
+/* Botón de Registro Especial */
+.register-btn {
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: #ffffff !important;
+  padding: 0.7rem 1.6rem !important;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600 !important;
+  box-shadow: 0 4px 15px var(--primary-glow);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition) !important;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.register-btn.active {
+  background: linear-gradient(135deg, var(--secondary), #0891b2);
+  box-shadow: 0 4px 15px var(--secondary-glow);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1.5rem;
+  }
+  .navbar-links {
+    gap: 1.2rem;
+  }
+  .register-btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem;
+  }
+}
